@@ -71,6 +71,9 @@ namespace HotelReservationSystem
             Console.Write("Enter Regular Weekend Rate : ");
             hotel.weekendRegularRates = Convert.ToInt32(Console.ReadLine());
 
+            Console.Write("Enter Rating : ");
+            hotel.rating = Convert.ToInt32(Console.ReadLine());
+
             AddHotel(hotel);
         }
     }

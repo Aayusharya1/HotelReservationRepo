@@ -12,9 +12,9 @@ namespace HotelReservationTests
         public void SetUP()
         {
             hotelReservation = new HotelReservation();
-            hotelReservation.AddHotel(new Hotel { name = "Lakewood", weekdayRegularRates = 110, weekendRegularRates = 90 });
-            hotelReservation.AddHotel(new Hotel { name = "Bridgewood", weekdayRegularRates = 160, weekendRegularRates = 60 });
-            hotelReservation.AddHotel(new Hotel { name = "Ridgewood", weekdayRegularRates = 220, weekendRegularRates = 150 });
+            hotelReservation.AddHotel(new Hotel { name = "Lakewood", weekdayRegularRates = 110, weekendRegularRates = 90, rating = 3 });
+            hotelReservation.AddHotel(new Hotel { name = "Bridgewood", weekdayRegularRates = 160, weekendRegularRates = 60, rating = 4 });
+            hotelReservation.AddHotel(new Hotel { name = "Ridgewood", weekdayRegularRates = 220, weekendRegularRates = 150, rating = 5 });
         }
         [Test]
         public void AddHotel_WhenPassedNewHotel_AddsHotelToSystem()
