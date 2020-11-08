@@ -40,5 +40,29 @@ namespace HotelReservationTests
 
             Assert.That(result, Does.Contain(expected));
         }
+
+        [Test]
+        public void FindCheapestBestRatedHotels_WhenGivenValidDateRange_ReturnsCheapestHotelWithHighestRating()
+        {
+            var startDate = Convert.ToDateTime("11Sep2020");
+            var endDate = Convert.ToDateTime("13Sep2020");
+
+            var expected = hotelReservation.hotels["Bridgewood"];
+            var result = hotelReservation.FindCheapestBestRatedHotel(startDate, endDate);
+
+            Assert.That(result, Does.Contain(expected));
+        }
+        [Test]
+        public void FindBestRatedHotels_WhenGivenValidDateRange_ReturnsBestRatedHotel()
+        {
+            var startDate = Convert.ToDateTime("11Sep2020");
+            var endDate = Convert.ToDateTime("13Sep2020");
+
+            var expected = hotelReservation.hotels["Ridgewood"];
+            var result = hotelReservation.FindBestRatedHotel(startDate, endDate);
+
+            Assert.That(result, Does.Contain(expected));
+        }
+
     }
 }

@@ -44,6 +44,35 @@ namespace HotelReservationSystem
             }
             return cheapestHotels;
         }
+
+
+        public List<Hotel> FindCheapestBestRatedHotel(DateTime startDate, DateTime endDate)
+        {
+            var cheapestHotels = FindCheapestHotel(startDate, endDate);
+            var cheapestBestRatedHotels = new List<Hotel>();
+            var maxRating = 0;
+            foreach (var hotel in cheapestHotels)
+                maxRating = Math.Max(maxRating, hotel.rating);
+            foreach (var hotel in cheapestHotels)
+                if (hotel.rating == maxRating)
+                    cheapestBestRatedHotels.Add(hotel);
+            return cheapestBestRatedHotels;
+
+        }
+        public List<Hotel> FindBestRatedHotel(DateTime startDate, DateTime endDate)
+        {
+            var cheapestBestRatedHotels = new List<Hotel>();
+            var maxRating = 0;
+            foreach (var hotel in hotels)
+                maxRating = Math.Max(maxRating, hotel.Value.rating);
+            foreach (var hotel in hotels)
+                if (hotel.Value.rating == maxRating)
+                    cheapestBestRatedHotels.Add(hotel.Value);
+            return cheapestBestRatedHotels;
+
+        }
+
+
         public int CalculateTotalCost(Hotel hotel, DateTime startDate, DateTime endDate)
         {
             var cost = 0;
